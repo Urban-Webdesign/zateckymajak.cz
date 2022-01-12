@@ -1,0 +1,77 @@
+{extends $control->baseGridTemplate}
+
+
+{define body-cell-title}
+	<td>
+		{ifset $record->cover}
+			<img src="{$basePath}/upload/articles/{$record->id}/{$record->cover}" style="max-width: 40px; height: auto; margin-right: .2rem" alt="{$record->title}" title="{$record->title}">
+		{/ifset}
+		{$record->title}
+	</td>
+{/define}
+
+{define body-cell-category_id}
+	<td>
+		{$record->category->name}
+	</td>
+{/define}
+
+{define body-cell-perex}
+	<td>
+		{$record->perex|striptags|truncate:75|noescape}
+	</td>
+{/define}
+
+{define body-cell-created}
+	<td class="text-right">
+		{$record->created|date:'d.m.Y'}
+	</td>
+{/define}
+
+{define body-cell-lang}
+	<td class="text-center">
+		{$record->lang}
+	</td>
+{/define}
+
+{define body-cell-public}
+	<td class="text-center">
+		{if $record->public}
+			<span class="text-success"><i class="mdi mdi-earth"></i> Veřejný</span>
+		{else}
+			<span class="text-danger"><i class="mdi mdi-lock"></i> Neveřejný</span>
+		{/if}
+	</td>
+{/define}
+
+{define body-cell-gallery_id}
+	<td class="text-center">
+		{if $record->gallery}
+			<a href="{plink :Admin:Gallery:edit $record->gallery->id}">{$record->gallery->name}</a>
+		{else}
+			<i>Žádná</i>
+		{/if}
+	</td>
+{/define}
+
+{define body-cell-folder_id}
+	<td class="text-center">
+		{if $record->folder}
+			<a href="{plink :Admin:File:default $record->folder->id}">{$record->folder->name}</a>
+		{else}
+			<i>Žádná</i>
+		{/if}
+	</td>
+{/define}
+
+{define row-action-edit}
+	<a href="{plink :Admin:Article:edit $record->id}" class="btn btn-sm btn-primary">
+		{$action->getLabel()}
+	</a>
+{/define}
+
+{define row-action-delete}
+	<a data-ajax="on" href="{$link}" class="btn btn-sm btn-outline-danger tw-ajax" data-confirm="modal" n:attr="data-confirm-text => $action->getConfirmation()">
+		{$action->getLabel()}
+	</a>
+{/define}

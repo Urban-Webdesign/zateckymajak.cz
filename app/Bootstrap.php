@@ -3,11 +3,11 @@
 namespace App;
 
 use Nette\Configurator;
-use OriNette\DI\Boot\CookieGetter;
 use OriNette\DI\Boot\Environment;
 use Symfony\Component\Dotenv\Dotenv;
 use function define;
 use function dirname;
+use function explode;
 use function file_exists;
 
 class Bootstrap
@@ -27,10 +27,12 @@ class Bootstrap
 
 		$configurator->addParameters(Environment::loadEnvParameters());
 
+		$debugCookiesVar = $_SERVER['DEBUG_COOKIE_VALUES'] ?? '';
+		$debugCookieValues = explode(',', $debugCookiesVar);
 		$configurator->setDebugMode(
 			Environment::isEnvDebugMode() ||
 			Environment::isLocalhost() ||
-			Environment::hasCookie(CookieGetter::fromEnv()),
+			Environment::hasCookie($debugCookieValues),
 		);
 		$configurator->enableDebugger(__DIR__ . '/../log');
 

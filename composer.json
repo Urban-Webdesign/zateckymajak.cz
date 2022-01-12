@@ -1,25 +1,13 @@
 {
-	"name": "k2d.cz/project-skeleton",
-	"description": "Project skeleton template",
+	"name": "k2d/project-skeleton",
+	"description": "Project template",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"repositories": [
-		{
-			"type": "git",
-			"url": "git@github.com:K2D-CZ/core.git"
-		},
-		{
-			"type": "git",
-			"url": "git@github.com:K2D-CZ/box.git"
-		},
-		{
-			"type": "git",
-			"url": "git@github.com:K2D-CZ/file.git"
-		},
-		{
-			"type": "git",
-			"url": "git@github.com:K2D-CZ/gallery.git"
-		}
+		{ "type": "git", "url": "git@github.com:K2D-CZ/core.git" },
+		{ "type": "git", "url": "git@github.com:K2D-CZ/box.git" },
+		{ "type": "git", "url": "git@github.com:K2D-CZ/file.git" },
+		{ "type": "git", "url": "git@github.com:K2D-CZ/gallery.git" }
 	],
 	"require": {
 		"php": ">= 7.4",
@@ -28,18 +16,17 @@
 		"ext-libxml": "*",
 		"ext-simplexml": "*",
 		"ext-xmlwriter": "*",
-		"h4kuna/date-filter": "^1.0",
 		"nette/nette": "^3.0.0",
 		"orisai/nette-di": "^1.0.0",
-		"simple-cms/box-module": "dev-master",
-		"simple-cms/core-module": "dev-master",
-		"simple-cms/file-module": "dev-master",
-		"simple-cms/gallery-module": "dev-master",
+		"simple-cms/box-module": "master-dev",
+		"simple-cms/core-module": "master-dev",
+		"simple-cms/file-module": "master-dev",
+		"simple-cms/gallery-module": "master-dev",
 		"symfony/dotenv": "^5.1",
 		"tracy/tracy": "^2.7.6"
 	},
 	"require-dev": {
-		"orisai/coding-standard": "^2.1.0",
+		"orisai/coding-standard": "^1.0.0",
 		"phpstan/extension-installer": "^1.0.0",
 		"phpstan/phpstan": "^0.12.0",
 		"phpstan/phpstan-deprecation-rules": "^0.12.0",
@@ -58,8 +45,8 @@
 			"php": "7.4"
 		},
 		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true,
-			"phpstan/extension-installer": true
+			"phpstan/extension-installer": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	}
 }
