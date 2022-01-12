@@ -62,14 +62,10 @@
 
 		<div n:if="$article->folder_id != NULL" class="soubory">
 			<h3 id="soubory">Soubory</h3>
-			<div class="row no-gutters">
+			<div class="file-grid">
 				{foreach $files as $file}
 						<a href="{$basePath}/upload/files/{$folder->slug}/{$file->path}" target="_blank" class="file">
-
-							{foreach $filetypes as $filetype}
-								<img n:if="$filetype === $file->type" src="{$basePath}/dist/img/filetypes/{$file->type}.svg" alt="{$file->name}">
-							{/foreach}
-							<h6>{$file->name}</h6>
+							<h6>{$file->name}.{$file->type}</h6>
 						</a>
 				{/foreach}
 			</div>

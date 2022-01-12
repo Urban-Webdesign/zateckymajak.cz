@@ -637,6 +637,16 @@ a:before, a:after, a > span:before, a > span:after {
 }
 
 // soubory
+.file-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: .3rem;
+
+	h6 {
+		margin: 0;
+	}
+}
+
 .folder {
 	position: relative;
 	display: flex;

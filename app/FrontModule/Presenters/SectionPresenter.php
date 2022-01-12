@@ -73,8 +73,8 @@ class SectionPresenter extends BasePresenter
 			$this->template->images = $this->imageModel->getImagesByGallery($article->gallery_id);
 
 		if ($article->folder_id != NULL) {
-			$this->template->folder = $this->folderModel->getFolder($article->folder_id);
-			$this->template->files = $this->fileModel->getFilesByFolderId($article->folder_id);
+			$this->template->folder = $this->repository->getFolder($article->folder_id);
+			$this->template->files = $this->repository->getFilesByFolderId($article->folder_id);
 			$this->template->filetypes = ['doc', 'docx', 'jpeg', 'jpg', 'pdf', 'png', 'ppt', 'pptx', 'txt', 'xls', 'xlsx'];
 		}
 
