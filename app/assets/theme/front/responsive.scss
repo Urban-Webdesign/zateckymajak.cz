@@ -1,0 +1,168 @@
+// responsive styles
+@include media-breakpoint-up(xs) {
+}
+@include media-breakpoint-up(sm) {
+	#articles {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto auto auto auto;
+		grid-template-areas:
+		"header header"
+		"article-new article-new"
+		"article-2 article-3"
+		"article-4 article-5"
+		"article-6 article-7"
+		"btn btn";
+
+		.newest-article {
+			margin-top: 0;
+			grid-area: article-new;
+		}
+		.note {
+			grid-area: header;
+		}
+
+		.load-more-articles-btn {
+			grid-area: btn;
+		}
+
+		article {
+			display: flex;
+		}
+	}
+}
+@include media-breakpoint-up(md) {
+
+	.navbar {
+		align-items: stretch;
+
+		.container {
+			align-items: flex-end;
+		}
+
+		.navbar-brand {
+			padding: 1rem;
+			background: unset;
+			font-size: 1.7rem;
+			width: auto;
+			margin-right: 0;
+
+			img {
+				max-width: 260px;
+			}
+		}
+
+		.navbar-btn {
+			display: none;
+		}
+
+		.navbar-collapse {
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+
+		.navbar-nav {
+			padding: 1rem 1rem 0 1rem;
+
+			.nav-link {
+				background: unset;
+				border-radius: unset;
+				margin: unset;
+			}
+		}
+	}
+
+	#section-page {
+		.list-of-articles {
+
+			article {
+				.article-img {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#articles {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto auto auto auto auto;
+		grid-template-areas:
+		"header header header"
+		"article-new article-new article-new"
+		"article-2 article-3 article-4"
+		"article-5 article-6 article-7"
+		"btn btn btn";
+	}
+}
+
+
+@include media-breakpoint-up(lg) {
+	.navbar {
+
+		.navbar-brand {
+			img {
+				max-width: 280px;
+			}
+		}
+		.navbar-nav {
+			padding: 0;
+
+			.nav-link {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	footer {
+		.footer-container {
+			display: grid;
+			justify-items: stretch;
+			gap: 1.5rem .5rem;
+			grid-template-columns: auto auto auto;
+			grid-template-rows: auto auto;
+			grid-template-areas:
+		"menu sections socials"
+		"created created created";
+
+			.menu {
+				grid-area: menu;
+			}
+
+			.sections {
+				grid-area: sections;
+			}
+
+			.socials {
+				grid-area: socials;
+			}
+
+			.created {
+				grid-area: created;
+			}
+
+			div {
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.navbar {
+		.navbar-brand {
+			img {
+				max-width: 300px;
+			}
+		}
+	}
+
+	#articles {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: auto auto auto auto;
+		grid-template-areas:
+		"header header header header"
+		"article-new article-new article-2 article-3"
+		"article-4 article-5 article-6 article-7"
+		"btn btn btn btn";
+	}
+
+}

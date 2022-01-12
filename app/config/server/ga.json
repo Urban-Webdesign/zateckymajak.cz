@@ -1,0 +1,12 @@
+{
+	"type": "service_account",
+	"project_id": "urban-webdesign",
+	"private_key_id": "e2b7db8da07a9ef5c7de1ea5d8a01a936d098d22",
+	"private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCnU7AHcRz+ILQI\nCQqYMGatfTQ6EC/i1K4IfeBERxJHAGYOWF5y438D5II3qk3YE+wXH/G4SylqNNbp\nCQrbbZwybU94skj9kLNiYCbCu8Bsu/WWf5PlXEJmlx+3P9mCTPrirekBihvkkswB\nIhTGebRc/hvZRV4LJGObND9QVP1/gbev0xYcb+CrZYHsusep6WMcrTpNlaf/SSat\nFYKdo2g9gaDLfPqeayLUjQw8FR8jwTts4Z9yLkebKfAppdf5g1sdmR2SBwiSbmFj\n7Cbrln61gYZwFm7LP3hFQdEcplD2hvgOO87pOK5U1wDjngfxNtF+j18RcC5/YuRw\n0ilnjqJHAgMBAAECggEAC57M5hdoPgsjYD4l1YqMTEFvs8CVXW62ZLHpNeoBo5tW\n0GmOqvKQSu2UUC1W7p9OPA+PMo9LDFcoaFKlGwwHrEYvHgteSk3BnMlfUmgbkEbq\nt/hFhcjcdlIfH74iwDZ8Y0BUot4RMH80BQ11h+XCgtrFhayYQAnXk7Boh+RUc9r/\nhUUOQDztXUvoqmGJaY27giP0hR0J1TsJOMlZ5zzWhdCChQI2h1d1rIJttV0B9mNC\nfrflRk5n07xk1/+k+3MkJDdQ/3D9O2k7LZKjCoPssp7R01JLxL7mRVtb673KQzG6\n82kZ5QbIzjZLfk8q8LtcH7XQXOOBNg9n3dnRN7O+EQKBgQDe45aI8SYWOCRwVy+n\nK3IdSHhzzbqa00czi3mmFO2701luSPG5YmRp/SAXhUb9unn0/GGJ8GcVioCM9adx\n6sHFEe1Of926N3uNvx1/uTxEifKIvVCRrFoJzIwpL9qSAZYncv2kDW6euNyCqftA\nCNZMpFpPzUyfGI48+odWq4P7lQKBgQDALxY3wCCQsMEqIRARzvKU/qWR+rl5kGD7\nbakPPGWNqr7r0MLtmeKERVO1F2XPn86YCWVZJGz3rCd2FIFcslD28IP0fS6OMS/g\nzEQGfV6VcpHacS6I6ox3WBtkQP7bEAPH4VLxZ3gjDWLUXKjSo0ncA08KsHqDRtj4\ndmKTDVvPawKBgGHRjA1JmCeEOCm9ecJqBMjpN0PLdCvisYrjmV3ULYmS9dq61KtB\njUQevOjVqxRLtJ5Z7Qy2nucLQ+OZJAWQu72bYoRjBZJmKylISM/3IYYK7JAqVaO4\n+kL2rESfJdOSMq3Zf4tyAaxTASOvKf8uYa59Ks1/EjN4eWQ1pxPYbjIJAoGAQtze\n/PyCF/T274JbRebbLQ0/a39woiOiKjen1t4rctNR41dZSjL8xQodqmZ+jHLL/Mdg\nFFiA9NZXUFSoASkk1BUvw5L97IieYLaQgDWD/7jBl99C0m3P+wGTXhji0jJLLnJt\nWgGmoYNZvAqUzdvzqXEZQd3OcffnKuJ9Py4poAsCgYAZOmlKE+7KeTg6vE4lMVT7\nojGWd3q1slPYZG5Iyl5capyzhMSM6F5ULn3oiS5WXjbpLZ5Ir/awfNjtJKKs1h/8\nn2Bd+TcA0fq2Sdmk0Hk89ZQ2pvpyt0IISlUzaCY8/Ig8PV5KnWrI196wno+LpbQ3\nSe2ixXCUU4aeHrc1hlA2cg==\n-----END PRIVATE KEY-----\n",
+	"client_email": "urban-webdesign-ga@urban-webdesign.iam.gserviceaccount.com",
+	"client_id": "113690721773391018921",
+	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	"token_uri": "https://oauth2.googleapis.com/token",
+	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/urban-webdesign-ga%40urban-webdesign.iam.gserviceaccount.com"
+}

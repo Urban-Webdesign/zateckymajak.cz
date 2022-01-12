@@ -1,0 +1,86 @@
+{block content}
+
+{block #og}
+	<meta property="og:title" content="{$article->title}">
+	<meta property="og:url" content="{$baseUrl}{plink this}" />
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="
+	{ifset $article->cover}
+		{$baseUrl}/upload/articles/{$article->id}/{$article->cover}
+	{else}
+		{$vars->og_image}
+	{/ifset}">
+		<meta property="og:description" content="
+	{ifset $article->perex}
+		{ifset $article->created}
+			{$article->created|date:'d. m. Y'} |
+		{/ifset}
+		{$perex|truncate:50}
+	{else}
+		{$vars->description}
+	{/ifset}">
+{/block}
+
+<nav class="container-fluid nav-breadcrumb" aria-label="breadcrumb">
+	<ol class="breadcrumb container">
+		<li class="breadcrumb-item"><a n:href="Homepage:sections">Rubriky</a></li>
+		<li class="breadcrumb-item"><a n:href="Section: $article_category->slug">{$article_category->name}</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{$article->title}</li>
+	</ol>
+</nav>
+
+<section class="article-page container" id="article-page">
+		<h1 n:block="title">{$article->title}</h1>
+		<span class="date">{$article->created|date:'d. m. Y'}</span>
+		<div class="content article-perex">
+			{$article->perex|noescape}
+		</div>
+
+		<img n:if="$article->cover != NULL" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" class="lazyload img-fluid" alt="{$article->title}">
+
+		<div class="content">
+			{$article->content|noescape}
+		</div>
+
+		<div n:if="$article->gallery_id != NULL" class="galerie">
+			<h3 id="galerie">Galerie k článku</h3>
+			<div class="row no-gutters">
+				{foreach $images as $image}
+					{if $iterator->counter < 5}
+						<a href="{$basePath}/upload/galleries/{$article->gallery_id}/{$image->name}" class="col-xsm-6 gal-img col-lg-3" data-lightbox="gallery" data-name="{$image->name}">
+							<img src="{$basePath}/upload/galleries/{$article->gallery_id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
+							<div n:if="$iterator->counter === 4" class="n-of-photos">{count($images) - 3}
+								<small>{if count($images) <= 7}další fotografie{else}dalších fotografií{/if}</small>
+							</div>
+						</a>
+					{else}
+						<a href="{$basePath}/upload/galleries/{$article->gallery_id}/{$image->name}" data-lightbox="gallery" data-title="{$image->title}"></a>
+					{/if}
+				{/foreach}
+			</div>
+		</div>
+
+
+		<div n:if="$article->folder_id != NULL" class="soubory">
+			<h3 id="soubory">Soubory</h3>
+			<div class="row no-gutters">
+				{foreach $files as $file}
+						<a href="{$basePath}/upload/files/{$folder->slug}/{$file->path}" target="_blank" class="file">
+
+							{foreach $filetypes as $filetype}
+								<img n:if="$filetype === $file->type" src="{$basePath}/dist/img/filetypes/{$file->type}.svg" alt="{$file->name}">
+							{/foreach}
+							<h6>{$file->name}</h6>
+						</a>
+				{/foreach}
+			</div>
+		</div>
+
+		<!-- Your share button code -->
+		<div class="fb-share-button"
+			 data-href="{$url}"
+			 data-layout="button"
+			 data-size="large">
+		</div>
+
+</section>

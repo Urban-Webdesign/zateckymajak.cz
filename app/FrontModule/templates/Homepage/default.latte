@@ -1,3 +1,92 @@
 {block #content}
+	<div class="bg-gray">
 
+		<div class="scrollmenu container-fluid">
+			<span class="note">Informační web pro všechny Žatečany</span>
+			<div class="scrollmenu-section">
+			{foreach $categories as $category}
+				<a n:href="Section: $category->slug" class="{$category->color}">
+						<img src="{$basePath}/dist/img/{$category->slug}.svg" alt="{$category->name}">
+						{$category->name}
+				</a>
+			{/foreach}
+			</div>
+		</div>
+
+		<main id="articles" class="container">
+
+			{foreach $articles as $article}
+				{if $iterator->first}
+					<article class="newest-article">
+						<a n:href="Section:article $article_category[$iterator->counter-1]->slug, $article->slug"><h2>{$article->title}</h2></a>
+						<a n:href="Section:article $article_category[$iterator->counter-1]->slug, $article->slug"><img class="article-img" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" alt="{$article->title}"></a>
+						<div class="article-perex" n:if="$iterator->first">{$article->perex|stripHtml|noescape}</div>
+						<a n:href="Section:default $article_category[$iterator->counter-1]->slug" class="article-section {$article_category[$iterator->counter-1]->color}" title="{$article_category[$iterator->counter-1]->name}"><img src="{$basePath}/dist/img/{$article_category[$iterator->counter-1]->slug}.svg" alt="{$article_category[$iterator->counter-1]->name}"> {$article_category[$iterator->counter-1]->name}</a>
+					</article>
+				{else}
+					<article>
+						<a n:href="Section:article $article_category[$iterator->counter-1]->slug, $article->slug"><img class="article-img" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" alt="{$article->title}"></a>
+						<div class="article-heading">
+							<a n:href="Section:default $article_category[$iterator->counter-1]->slug" class="article-section {$article_category[$iterator->counter-1]->color}" title="{$article_category[$iterator->counter-1]->name}"><img src="{$basePath}/dist/img/{$article_category[$iterator->counter-1]->slug}.svg" alt="{$article_category[$iterator->counter-1]->name}"> {$article_category[$iterator->counter-1]->name}</a>
+							<a n:href="Section:article $article_category[$iterator->counter-1]->slug, $article->slug"><h3>{$article->title}</h3></a>
+						</div>
+					</article>
+				{/if}
+			{/foreach}
+
+			<!-- todo most read articles
+				<div class="col-xl-3 most-read">
+					<h3>Nejčtenější články</h3>
+
+					<div class="heading">
+						<img src="{$basePath}/dist/img/img06.png" alt="Letní kino" class="img-fluid">
+						<span class="heading-section">Zpravodajství</span>
+						<h3>Od července se ruší online objednávky do Letního kina</h3>
+					</div>
+					<div class="heading">
+						<span class="heading-section">Spolky</span>
+						<h3>Začala soutěž o Strom roku</h3>
+					</div>
+					<div class="heading">
+						<span class="heading-section">Vzdělávání</span>
+						<h3>Univerzita severu se zajímá o Přírodovědné centrum v Žatci</h3>
+					</div>
+					<div class="heading">
+						<span class="heading-section">Zpravodajství</span>
+						<h3>Úprava ceníku a provozní doby na koupališti</h3>
+					</div>
+				</div>
+				-->
+		</main>
+
+
+		<section id="sections">
+			<div class="container">
+				<div class="row">
+					{foreach $categories as $category}
+						<a n:href="Section:default $category->slug" class="sec col-md-6 col-lg-4 col-xl-2">
+							<div class="bg bg-{$category->color}">
+								<img src="{$basePath}/dist/img/{$category->slug}.svg" alt="{$category->name}">
+								{$category->name}
+							</div>
+						</a>
+					{/foreach}
+				</div>
+			</div>
+		</section>
+
+		<section id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 about-img">
+						<img src="{$basePath}/dist/img/zatec.jpg" class="img-fluid" alt="Žatecký maják">
+					</div>
+					<div class="col-lg-6 about-text">
+						<h2>O Žateckém majáku</h2>
+						{box about}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 {/block}
