@@ -44,7 +44,7 @@ class SectionPresenter extends BasePresenter
 		$itemsPerPage = (int) $vars->itemsPerPage;
 
 		$category = $this->categoryModel->getCategoryBySlug($section);
-		$this->template->category = $category;
+		$this->template->sectionCategory = $category;
 
 		$articlesCount = $this->articleModel->getArticlesByCategoryCount($category->id);
 

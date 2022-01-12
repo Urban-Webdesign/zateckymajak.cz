@@ -12,10 +12,7 @@
 	{/ifset}">
 		<meta property="og:description" content="
 	{ifset $article->perex}
-		{ifset $article->created}
-			{$article->created|date:'d. m. Y'} |
-		{/ifset}
-		{$perex|truncate:50}
+		{$perex|truncate:100}
 	{else}
 		{$vars->description}
 	{/ifset}">
