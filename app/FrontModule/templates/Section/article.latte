@@ -29,7 +29,7 @@
 <section class="article-page container" id="article-page">
 	<article class="main-article">
 		<h1 n:block="title">{$article->title}</h1>
-		<img n:if="$article->cover != NULL" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" class="lazyload img-fluid" alt="{$article->title}">
+		<img n:if="$article->cover != NULL" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" class="main-img lazyload img-fluid" alt="{$article->title}">
 
 		<div class="content article-perex">
 			{$article->perex|noescape}
@@ -43,10 +43,10 @@
 
 		<div n:if="$article->gallery_id != NULL" class="galerie">
 			<h3 id="galerie">Galerie k článku</h3>
-			<div class="row no-gutters">
+			<div class="gallery-grid">
 				{foreach $images as $image}
 					{if $iterator->counter < 5}
-						<a href="{$basePath}/upload/galleries/{$article->gallery_id}/{$image->name}" class="col-xsm-6 gal-img col-lg-3" data-lightbox="gallery" data-name="{$image->name}">
+						<a href="{$basePath}/upload/galleries/{$article->gallery_id}/{$image->name}" class="gal-img" data-lightbox="gallery" data-name="{$image->name}">
 							<img src="{$basePath}/upload/galleries/{$article->gallery_id}/thumbs/{$image->name}" class="lazyload img-fluid" alt="{$image->title}">
 							<div n:if="$iterator->counter === 4" class="n-of-photos">{count($images) - 3}
 								<small>{if count($images) <= 7}další fotografie{else}dalších fotografií{/if}</small>

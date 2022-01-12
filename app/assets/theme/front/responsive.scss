@@ -2,6 +2,7 @@
 @include media-breakpoint-up(xs) {
 	.navbar {
 		.navbar-brand {
+
 			img {
 				max-width: 220px;
 			}
@@ -148,11 +149,28 @@
 		}
 	}
 
+	.galerie {
+		.gallery-grid {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-gap: .5rem;
+		}
+	}
+
 	#article-page {
 		grid-template-columns: 700px 1fr;
 
 		h1 {
 			font-size: 2.2rem;
+		}
+
+		.right-col {
+			article {
+				grid-gap: 1rem;
+			}
+
+			h3 {
+				font-size: 1.2rem;
+			}
 		}
 	}
 
