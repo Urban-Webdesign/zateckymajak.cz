@@ -1,11 +1,11 @@
 {block #content}
 	<div class="note">
-		<div class="container">
+		<div class="container-fluid container-md">
 			<h1>Informační web pro všechny Žatečany</h1>
 		</div>
 	</div>
 
-	<div class="scrollmenu container-fluid container-md">
+	<div class="scrollmenu container">
 		{foreach $categories as $category}
 			<a n:href="Section: $category->slug" class="{$category->color}">
 				<div class="svg-{$category->slug} svg-section"></div>

@@ -32,7 +32,7 @@ h1, h2, h3, .navbar-brand, .note, .heading-section, .sec, .nav-link, .created, .
 	}
 
 	.navbar-brand {
-		padding: 1rem 0;
+		padding: 1rem 0 1rem 1rem;
 		display: flex;
 		flex-direction: row;
 		justify-content: left;
@@ -501,13 +501,23 @@ a:before, a:after, a > span:before, a > span:after {
 	grid-gap: 3rem;
 	margin-bottom: 4rem;
 
+	h1 {
+		font-size: 1.8rem;
+	}
+
+	.right-col {
+		article {
+			grid-gap: .5rem;
+		}
+
+		h3 {
+			font-size: 1.1rem;
+		}
+	}
+
 	.main-article {
 		display: grid;
 		grid-template-columns: 1fr;
-
-		img {
-			box-shadow: 0 2px 4px 3px rgba($gray-600, 0.1)
-		}
 	}
 
 	nav {
@@ -531,7 +541,14 @@ a:before, a:after, a > span:before, a > span:after {
 		font-family: 'Open Sans', sans-serif;
 	}
 
-	nav, h1, .date, .content, .fb-share-button, .galerie, .soubory, img {
+	.main-img {
+		margin: .5rem 1rem;
+		width: calc(100% - 2rem);
+		max-width: 700px;
+		box-shadow: 0 2px 4px 3px rgba($gray-600, 0.1)
+	}
+
+	nav, h1, .date, .content, .fb-share-button, .galerie, .soubory {
 		padding: .5rem 1rem;
 		width: 100%;
 		max-width: 700px;
@@ -563,6 +580,12 @@ a:before, a:after, a > span:before, a > span:after {
 // galerie
 .galerie {
 	margin-top: auto;
+
+	.gallery-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: .3rem;
+	}
 
 	.gal-img {
 		justify-content: center;
@@ -596,10 +619,13 @@ a:before, a:after, a > span:before, a > span:after {
 			font-size: 2.4rem;
 			font-weight: 400;
 			transition: .25s ease-in;
+			gap: .5rem;
 
 			small {
-				font-size: 1rem;
+				text-align: center;
+				font-size: .9rem;
 				font-weight: 400;
+				line-height: .9rem;
 			}
 
 			&:hover {
