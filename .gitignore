@@ -16,6 +16,6 @@
 
 # Local
 /app/config/server/local.neon
-/app/config/google_service_account.json
+/app/config/server/ga.json
 /.env
-/.data/
+/.data

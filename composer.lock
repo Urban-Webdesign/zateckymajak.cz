@@ -2184,12 +2184,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orisai/auth.git",
-                "reference": "76782a35af7b89df158f871fe4f0faf0d939254e"
+                "reference": "70cfc45e00e49099c0e27d0b2e16d5446f94ff48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orisai/auth/zipball/76782a35af7b89df158f871fe4f0faf0d939254e",
-                "reference": "76782a35af7b89df158f871fe4f0faf0d939254e",
+                "url": "https://api.github.com/repos/orisai/auth/zipball/70cfc45e00e49099c0e27d0b2e16d5446f94ff48",
+                "reference": "70cfc45e00e49099c0e27d0b2e16d5446f94ff48",
                 "shasum": ""
             },
             "require": {
@@ -2251,7 +2251,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-07T02:28:39+00:00"
+            "time": "2022-01-12T11:17:49+00:00"
         },
         {
             "name": "orisai/exceptions",
@@ -2324,12 +2324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/orisai/nette-auth.git",
-                "reference": "8ce0cad6b82b596524109b627d83923c1998c30b"
+                "reference": "5a898962a2cfb6b5383f1dd2658f3039a86d19aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orisai/nette-auth/zipball/8ce0cad6b82b596524109b627d83923c1998c30b",
-                "reference": "8ce0cad6b82b596524109b627d83923c1998c30b",
+                "url": "https://api.github.com/repos/orisai/nette-auth/zipball/5a898962a2cfb6b5383f1dd2658f3039a86d19aa",
+                "reference": "5a898962a2cfb6b5383f1dd2658f3039a86d19aa",
                 "shasum": ""
             },
             "require": {
@@ -2389,7 +2389,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-07T02:09:23+00:00"
+            "time": "2022-01-12T11:18:53+00:00"
         },
         {
             "name": "orisai/nette-di",

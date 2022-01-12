@@ -4,10 +4,15 @@ namespace App\FrontModule\Presenters;
 
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
+use K2D\Box\Component\BoxComponent\BoxComponent;
+use K2D\Box\Component\BoxComponent\BoxComponentFactory;
 use K2D\Core\Presenter\BasePresenter;
 
 class HomepagePresenter extends BasePresenter
 {
+
+	/** @inject */
+	public BoxComponentFactory $boxFactory;
 
 	/** @var ArticleModel */
 	private ArticleModel $articleModel;
@@ -21,6 +26,13 @@ class HomepagePresenter extends BasePresenter
 		$this->articleModel = $articleModel;
 		$this->categoryModel = $categoryModel;
 	}
+
+
+	protected function createComponentBox(): BoxComponent
+	{
+		return $this->boxFactory->create();
+	}
+
 	public function renderDefault(): void
 	{
 		// get all articles
