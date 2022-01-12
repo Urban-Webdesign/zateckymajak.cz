@@ -18,7 +18,16 @@ class RouterFactory
 			->addRoute('admin/<presenter>/<action>[/<id>]', 'Homepage:default');
 
 		$router->withModule('Front')
-			->addRoute('[<lang=cs (cs)>/]<presenter>/<action>', 'Homepage:default');
+			->addRoute('[<lang=cs (cs)>/]', 'Homepage:default')
+			->addRoute('[<lang=cs (cs)>/]rubriky', 'Homepage:sections')
+			->addRoute('[<lang=cs (cs)>/]redakce', 'Homepage:authors')
+			->addRoute('[<lang=cs (cs)>/]kontakt', 'Homepage:contact')
+			->addRoute('[<lang=cs (cs)>/]mapa-stranek', 'Homepage:sitemap')
+			->addRoute('[<lang=cs (cs)>/]dokumenty', 'Homepage:documents')
+			->addRoute('[<lang=cs (cs)>/]<section>[/<page [0-9]>]', 'Section:default')
+			->addRoute('[<lang=cs (cs)>/]<section>/<slug>', 'Section:article')
+			->addRoute('[<lang=cs [a-z]{2}>/]<presenter>/<action>', 'Error:404');
+
 
 		return $router;
 	}

@@ -1,0 +1,122 @@
+{templateType K2D\Core\Template\BaseTemplate}
+{varType Nette\Database\Table\ActiveRow|null $service}
+
+{block #title}
+	{$service === null ? 'Add new' : 'Edit'} service
+{/block}
+
+{block #buttons}
+	<a href="#" class="btn btn-primary" onclick="triggerClick('.btn-save')">
+		Save
+	</a>
+	<a n:if="$service" n:href=":Front:Service:detail $service->slug" class="btn btn-info" target="_blank">
+		Show preview on website
+	</a>
+	<a n:href="default" class="btn btn-light">
+		Back
+	</a>
+{/block}
+
+{block content}
+	<div n:if="$service && $service->cover" n:snippet="cropper" class="modal fade" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-body p-0">
+					{control cropper}
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-success" onclick="triggerClick('.btn-cropper-submit')">Crop image</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-white">
+		<div class="row">
+			<div class="col-lg-8">
+				{snippet cover}
+					{form editForm}
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									{label name}{/label}
+                                    {input name class => 'form-control form-control-sm'}
+								</div>
+							</div>
+							<div class="col-lg-2" n:if="$presenter->configuration->getLanguagesCount() > 1">
+								<div class="form-group">
+									{label lang}{/label}
+                                    {input lang class => 'form-control form-control-sm'}
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									{label gallery_id}{/label}
+                                    <small class="text-muted float-right">(optional)</small>
+                                    {input gallery_id class => 'form-control form-control-sm'}
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<div class="form-group">
+									{label description}{/label}
+                                    {input description}
+								</div>
+							</div>
+							<div class="col-lg-2">
+								<div class="form-group">
+									<div class="custom-control custom-checkbox">
+										<input n:name="public" class="custom-control-input">
+										<label n:name="public" class="custom-control-label">Make public</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						{input save class => 'btn-save d-none'}
+					{/form}
+				{/snippet}
+			</div>
+			<div class="col-lg-4" n:if="$service" n:snippet="image">
+				<div class="mb-2">
+					Cover image
+				</div>
+				{control dropzone}
+                {if $service->cover}
+					<div class="position-relative" n:if="$service->cover">
+						<img src="{$basePath}/upload/services/{$service->id}/{$service->cover}?{filemtime(WWW . '/upload/services/' . $service->id . '/' . $service->cover)}" class="img-fluid" />
+						<div class="position-absolute" style="bottom: 0; width: 100%;">
+							<div class="text-center mb-3">
+								<a n:href="rotateLeft! $service->slug" class="ajax btn btn-light btn-sm">
+									<i class="mdi mdi-rotate-left"></i>
+								</a>
+								<a n:href="rotateRight! $service->slug" class="ajax btn btn-light btn-sm">
+									<i class="mdi mdi-rotate-right"></i>
+								</a>
+								<a n:href="cropImage!" class="ajax btn btn-primary btn-sm">
+									Crop
+								</a>
+								<a n:href="deleteImage!"
+										data-confirm="modal"
+										data-confirm-title="Smazání obrázku"
+										data-confirm-text="Opravdu chcete smazat tento obrázek?"
+										data-ajax="off"
+										class="btn btn-sm btn-danger">
+									Delete
+								</a>
+							</div>
+						</div>
+					</div>
+				{else}
+					<div class="alert alert-info">
+						<div class="icon">
+							<i class="mdi mdi-information"></i>
+						</div>
+						<div class="message">
+							Cover image was not uploaded
+						</div>
+					</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+{/block}

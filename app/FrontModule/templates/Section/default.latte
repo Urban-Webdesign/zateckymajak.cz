@@ -3,58 +3,57 @@
 <nav class="container-fluid nav-breadcrumb" aria-label="breadcrumb">
 	<ol class="breadcrumb container">
 		<li class="breadcrumb-item"><a n:href="Homepage:sections">Rubriky</a></li>
-		<li class="breadcrumb-item active" aria-current="page">{$category->name}</li>
+		<li class="breadcrumb-item active" aria-current="page">{$sectionCategory->name}</li>
 	</ol>
 </nav>
 
-<section id="section-page" class="section-page container">
+<div class="scrollmenu container-fluid container-md">
+	{foreach $categories as $category}
+		<a n:href="Section: $category->slug" class="{$category->color}">
+			<div class="svg-{$category->slug} svg-section"></div>
+			{$category->name}
+		</a>
+	{/foreach}
+</div>
 
-		<div class="list-of-articles pt-3">
-			<ul class="nav-section">
-				{foreach $categories as $cat}
-						<li>
-							<a n:href="Section:default $cat->slug" class="hover-3 {$cat->color}">
-								<img class="mr-2" src="{$basePath}/dist/img/{$cat->slug}.svg" alt="{$cat->name}">
-								{$cat->name}
-							</a>
-						</li>
-				{/foreach}
-			</ul>
+<section class="section-page">
+	<div class="container">
+		<h1 n:block="title">{$sectionCategory->name}</h1>
 
-			<h1 n:block="title" class="mb-4">{$category->name}</h1>
-
+		<div class="list-of-articles">
 			{if count($articles) > 0}
 
 				{foreach $articles as $article}
 					<article>
-						<a n:href="Section:article $category->slug, $article->slug"><img class="article-img" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" alt="{$article->title}"></a>
+						<a n:href="Section:article $article->category->slug, $article->slug"><img class="article-img" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" alt="{$article->title}"></a>
 						<div class="article-heading">
-							<a n:href="Section:article $category->slug, $article->slug"><h3>{$article->title}</h3></a>
+							<a n:href="Section:article $article->category->slug, $article->slug"><h3>{$article->title}</h3></a>
 							<span class="article-date">{$article->created|date:'d. m. Y'}</span>
 						</div>
 					</article>
 				{/foreach}
 
-				<div class="pagination">
-					{if !$paginator->isFirst()}
-						<a n:href="default, $category->slug, 1">První</a>
-						&nbsp;|&nbsp;
-						<a n:href="default, $category->slug, $paginator->page-1">Předchozí</a>
-						&nbsp;|&nbsp;
-					{/if}
-
-						Stránka {$paginator->page} z {$paginator->pageCount}
-
-            {if !$paginator->isLast()}
-						&nbsp;|&nbsp;
-						<a n:href="Section:default, $category->slug, $paginator->page+1">Další</a>
-						&nbsp;|&nbsp;
-						<a n:href="Section:default, $category->slug, $paginator->pageCount">Poslední</a>
-					{/if}
-				</div>
-
 			{else}
-				<h4>Na webu aktuálně nejsou žádné zveřejněné články ze sekce {$category->name}.</h4>
+				<h4>Na webu aktuálně nejsou žádné zveřejněné články ze sekce {$sectionCategory->name}.</h4>
 			{/if}
 		</div>
+
+		<div class="pagination">
+			{if !$paginator->isFirst()}
+				<a n:href="default, $sectionCategory->slug, 1">První</a>
+				&nbsp;|&nbsp;
+				<a n:href="default, $sectionCategory->slug, $paginator->page-1">Předchozí</a>
+				&nbsp;|&nbsp;
+			{/if}
+
+				Stránka {$paginator->page} z {$paginator->pageCount}
+
+            		{if !$paginator->isLast()}
+				&nbsp;|&nbsp;
+				<a n:href="Section:default, $sectionCategory->slug, $paginator->page+1">Další</a>
+				&nbsp;|&nbsp;
+				<a n:href="Section:default, $sectionCategory->slug, $paginator->pageCount">Poslední</a>
+			{/if}
+		</div>
+	</div>
 </section>

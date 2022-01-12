@@ -1,0 +1,52 @@
+{extends $control->baseGridTemplate}
+
+{define body-cell-name}
+	<td>
+		<img n:if="$record->cover" src="{$basePath}/upload/services/{$record->id}/{$record->cover}" style="width: 52px; height: 39px; margin-right: 5px" alt="{$record->name}">
+		{$record->name}
+	</td>
+{/define}
+
+{define body-cell-gallery}
+	<td class="text-center">
+		{if $record->gallery}
+			<a href="{plink :Admin:Gallery:edit $record->gallery->id}">{$record->gallery->name}</a>
+		{else}
+			<i>None</i>
+		{/if}
+	</td>
+{/define}
+
+{define body-cell-public}
+	<td>
+		{if $record->public}
+			<span class="text-success"><i class="mdi mdi-earth"></i> Public</span>
+		{else}
+			<span class="text-danger"><i class="mdi mdi-lock"></i> Private</span>
+		{/if}
+	</td>
+{/define}
+
+{define body-cell-updated}
+	<td>
+		{$record->updated|date:'d.m.Y'}
+	</td>
+{/define}
+
+{define body-cell-created}
+	<td>
+		{$record->created|date:'d.m.Y'}
+	</td>
+{/define}
+
+{define row-action-edit}
+	<a href="{plink :Admin:Service:edit $record->id}" class="btn btn-sm btn-primary">
+		{$action->getLabel()}
+	</a>
+{/define}
+
+{define row-action-delete}
+	<a data-ajax="on" href="{$link}" class="btn btn-sm btn-outline-danger tw-ajax" data-confirm="modal" n:attr="data-confirm-text => $action->getConfirmation()">
+		{$action->getLabel()}
+	</a>
+{/define}

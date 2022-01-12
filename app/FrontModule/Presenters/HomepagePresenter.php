@@ -5,7 +5,6 @@ namespace App\FrontModule\Presenters;
 use App\Model\ArticleModel;
 use App\Model\CategoryModel;
 use K2D\Core\Presenter\BasePresenter;
-use K2D\File\Model\FolderModel;
 
 class HomepagePresenter extends BasePresenter
 {
@@ -16,16 +15,11 @@ class HomepagePresenter extends BasePresenter
 	/** @var CategoryModel */
 	private CategoryModel $categoryModel;
 
-	/** @var FolderModel */
-	private FolderModel $folderModel;
-
-
-	public function __construct(ArticleModel $articleModel, CategoryModel $categoryModel, FolderModel $folderModel)
+	public function __construct(ArticleModel $articleModel, CategoryModel $categoryModel)
 	{
 		parent::__construct();
 		$this->articleModel = $articleModel;
 		$this->categoryModel = $categoryModel;
-		$this->folderModel = $folderModel;
 	}
 	public function renderDefault(): void
 	{
@@ -72,12 +66,12 @@ class HomepagePresenter extends BasePresenter
 
 	public function renderDocuments(): void
 	{
-		$this->template->folder_zpravodajstvi = $this->folderModel->getFilesByFolderId(5);
-		$this->template->folder_sluzby = $this->folderModel->getFilesByFolderId(6);
-		$this->template->folder_kultura = $this->folderModel->getFilesByFolderId(7);
-		$this->template->folder_sport = $this->folderModel->getFilesByFolderId(8);
-		$this->template->folder_vzdelavani = $this->folderModel->getFilesByFolderId(9);
-		$this->template->folder_blogy = $this->folderModel->getFilesByFolderId(10);
+		$this->template->folder_zpravodajstvi = $this->repository->getFilesByFolderId(5);
+		$this->template->folder_sluzby = $this->repository->getFilesByFolderId(6);
+		$this->template->folder_kultura = $this->repository->getFilesByFolderId(7);
+		$this->template->folder_sport = $this->repository->getFilesByFolderId(8);
+		$this->template->folder_vzdelavani = $this->repository->getFilesByFolderId(9);
+		$this->template->folder_blogy = $this->repository->getFilesByFolderId(10);
 		$this->template->filetypes = ['doc', 'docx', 'jpeg', 'jpg', 'pdf', 'png', 'ppt', 'pptx', 'txt', 'xls', 'xlsx'];
 	}
 

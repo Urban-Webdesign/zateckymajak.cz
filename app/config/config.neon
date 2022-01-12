@@ -9,8 +9,14 @@ application:
 
 services:
 	router: App\RouterFactory::createRouter()
+	repository: App\Service\ProjectModelRepository
 	- App\Model\ArticleModel
 	- App\Model\CategoryModel
+	# Grids
+	- App\AdminModule\Grid\ArticleGridFactory
 
 parameters:
 	customTemplatesDir: %appDir%/FrontModule/templates/
+	admin:
+		menu:
+			Články: [':Admin:Article:', pencil]
