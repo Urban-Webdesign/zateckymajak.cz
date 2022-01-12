@@ -1,36 +1,28 @@
 // responsive styles
 @include media-breakpoint-up(xs) {
-}
-@include media-breakpoint-up(sm) {
-	#articles {
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto auto auto auto auto auto;
-		grid-template-areas:
-		"header header"
-		"article-new article-new"
-		"article-2 article-3"
-		"article-4 article-5"
-		"article-6 article-7"
-		"btn btn";
-
-		.newest-article {
-			margin-top: 0;
-			grid-area: article-new;
-		}
-		.note {
-			grid-area: header;
-		}
-
-		.load-more-articles-btn {
-			grid-area: btn;
-		}
-
-		article {
-			display: flex;
+	.navbar {
+		.navbar-brand {
+			img {
+				max-width: 220px;
+			}
 		}
 	}
 }
 @include media-breakpoint-up(md) {
+	.scrollmenu {
+		justify-content: space-between;
+	}
+
+	article {
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		h3 {
+			font-size: 1.2rem;
+		}
+	}
 
 	.navbar {
 		align-items: stretch;
@@ -43,7 +35,6 @@
 			padding: 1rem;
 			background: unset;
 			font-size: 1.7rem;
-			width: auto;
 			margin-right: 0;
 
 			img {
@@ -67,6 +58,8 @@
 				background: unset;
 				border-radius: unset;
 				margin: unset;
+				font-size: 1.1rem;
+				padding: .7rem;
 			}
 		}
 	}
@@ -81,23 +74,70 @@
 			}
 		}
 	}
-
-	#articles {
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: auto auto auto auto auto;
-		grid-template-areas:
-		"header header header"
-		"article-new article-new article-new"
-		"article-2 article-3 article-4"
-		"article-5 article-6 article-7"
-		"btn btn btn";
-	}
 }
 
-
 @include media-breakpoint-up(lg) {
-	.navbar {
+	.scrollmenu {
+		a {
+			font-size: 1.1rem;
 
+			&:last-child {
+				margin-right: unset;
+			}
+		}
+	}
+
+	.homepage-articles {
+		margin-top: 2rem;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 2rem;
+		grid-template-areas:
+		"latest latest"
+		"zpravodajstvi sluzby"
+		"ad ad"
+		"spolky sport"
+		"vzdelavani blogy";
+
+		.ad-a {
+			grid-area: ad;
+		}
+	}
+
+	.latest-articles {
+		grid-area: latest;
+		grid-template-columns: 1fr 350px;
+		grid-gap: 3rem;
+		padding-bottom: 3rem;
+		border-bottom: 3px solid $gray-200;
+
+		.newest-article {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.right-col {
+		align-content: start;
+		grid-gap: .75rem;
+
+		article {
+			padding-top: .75rem;
+			border-top: 1.5px solid $gray-200;
+
+			h3 {
+				font-size: 1.2rem;
+				font-weight: 500;
+			}
+
+		}
+	}
+
+	.category-section {
+		grid-gap: 1.5rem;
+		align-content: start;
+	}
+
+
+	.navbar {
 		.navbar-brand {
 			img {
 				max-width: 280px;
@@ -110,6 +150,35 @@
 				font-size: 1.2rem;
 			}
 		}
+	}
+
+	article {
+		grid-template-columns: 140px 1fr;
+
+		.article-img {
+			width: 140px;
+			height: 105px;
+		}
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		h3 {
+			font-size: 1.3rem;
+		}
+	}
+
+	#article-page {
+		grid-template-columns: 700px 1fr;
+
+		h1 {
+			font-size: 2.2rem;
+		}
+	}
+
+	#about {
+		grid-template-columns: 1fr 1fr;
 	}
 
 	footer {
@@ -155,14 +224,16 @@
 		}
 	}
 
-	#articles {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: auto auto auto auto;
+	.homepage-articles {
+		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-areas:
-		"header header header header"
-		"article-new article-new article-2 article-3"
-		"article-4 article-5 article-6 article-7"
-		"btn btn btn btn";
+		"latest latest latest"
+		"zpravodajstvi sluzby spolky"
+		"ad ad ad"
+		"sport vzdelavani blogy";
 	}
 
+	.latest-articles {
+		grid-template-columns: 1fr 550px;
+	}
 }

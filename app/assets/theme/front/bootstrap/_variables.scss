@@ -203,7 +203,7 @@ $grid-breakpoints: (
 	sm: 576px,
 	md: 768px,
 	lg: 992px,
-	xl: 1200px,
+	xl: 1300px,
 	xxl: 1500px
 ) !default;
 
@@ -220,8 +220,8 @@ $container-max-widths: (
 	sm: 540px,
 	md: 720px,
 	lg: 960px,
-	xl: 1140px,
-	xxl: 1440px
+	xl: 1240px,
+	xxl: 1400px
 ) !default;
 
 @include _assert-ascending($container-max-widths, "$container-max-widths");
@@ -246,7 +246,7 @@ $line-height-sm:              1.5 !default;
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
 
-$border-radius:               .25rem !default;
+$border-radius:               .2rem !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
 

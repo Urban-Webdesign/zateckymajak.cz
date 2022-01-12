@@ -9,7 +9,8 @@ application:
 
 services:
 	router: App\RouterFactory::createRouter()
+	- App\Model\ArticleModel
+	- App\Model\CategoryModel
 
 parameters:
 	customTemplatesDir: %appDir%/FrontModule/templates/
-

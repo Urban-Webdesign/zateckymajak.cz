@@ -30,17 +30,19 @@
 </nav>
 
 <section class="article-page container" id="article-page">
+	<article class="main-article">
 		<h1 n:block="title">{$article->title}</h1>
-		<span class="date">{$article->created|date:'d. m. Y'}</span>
+		<img n:if="$article->cover != NULL" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" class="lazyload img-fluid" alt="{$article->title}">
+
 		<div class="content article-perex">
 			{$article->perex|noescape}
 		</div>
 
-		<img n:if="$article->cover != NULL" src="{$basePath}/upload/articles/{$article->id}/{$article->cover}" class="lazyload img-fluid" alt="{$article->title}">
-
 		<div class="content">
 			{$article->content|noescape}
 		</div>
+
+		<div class="date">Datum přidání: <time datetime="{$article->created|date:'Y-m-d'}">{$article->created|date:'j. m. Y'}</time></div>
 
 		<div n:if="$article->gallery_id != NULL" class="galerie">
 			<h3 id="galerie">Galerie k článku</h3>
@@ -82,5 +84,18 @@
 			 data-layout="button"
 			 data-size="large">
 		</div>
-
+	</article>
+	<div class="right-col">
+		<h4>Nejnovější zprávy</h4>
+		{foreach $otherLatestArticles as $ola}
+			<article>
+				<a n:href="Section:article $ola->category->slug, $ola->slug"><img class="article-img" src="{$basePath}/upload/articles/{$ola->id}/{$ola->cover}" alt="{$ola->title}"></a>
+				<div class="article-heading">
+					<a n:href="Section:default $ola->category->slug" class="article-section {$ola->category->color}" title="{$ola->category->name}"><div class="svg-article-section svg-{$ola->category->slug}"></div> {$ola->category->name}</a>
+					<time class="article-date" datetime="{$ola->created|date:'Y-m-d'}">{$ola->created|date:'j. m.'}</time>
+					<a n:href="Section:article $ola->category->slug, $ola->slug"><h3>{$ola->title}</h3></a>
+				</div>
+			</article>
+		{/foreach}
+	</div>
 </section>
