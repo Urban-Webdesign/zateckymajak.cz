@@ -117,6 +117,7 @@ h1, h2, h3, .navbar-brand, .note, .heading-section, .sec, .nav-link, .created, .
 	grid-gap: 1rem;
 
 	.ad-img {
+		display: block !important;
 		max-width: 100%;
 		height: auto;
 		border-radius: $border-radius;
